@@ -9,6 +9,7 @@ const web3 = new Web3(new HDWalletProvider(
 const PoWArtifact = require('./build/contracts/ProofOfWork.json')
 // eslint-disable-next-line promise/avoid-new
 const timeout = async (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+const MINIMUM_WORK = 10
 
 const serialPort = '/dev/tty-usbserial1'
 const SerialPort = require('serialport')
@@ -77,6 +78,9 @@ const main = async () => {
       }
       // generate a random nonce
       count++
+      if (count < MINIMUM_WORK) {
+        continue
+      }
       const nonce = generateNonce()
       // check to see if it's valid
       const {
