@@ -9,7 +9,7 @@ contract ProofOfWork is StandardToken, DetailedERC20 {
 
   event Mint(address indexed to, uint256 amount);
 
-  uint256 public difficulty = 2**253 - 1;
+  uint256 public difficulty = 2**254 - 1;
   bytes32 public challengeNumber = bytes32(1);
 
   mapping(bytes32 => bytes32) public solutionForChallenge;
