@@ -11,7 +11,7 @@ const PoWArtifact = require('./build/contracts/ProofOfWork.json')
 const timeout = async (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 const MINIMUM_WORK = 10
 
-const serialPort = '/dev/tty-usbserial1'
+const serialPort = '/dev/ttyAMA0'
 const SerialPort = require('serialport')
 
 if (process.env.TEST) {
