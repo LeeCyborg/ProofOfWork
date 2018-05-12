@@ -49,7 +49,6 @@ port.on('data', function (data) {
 
 const generateNonce = () => web3Utils.toBN(web3Utils.randomHex(32))
 
-let didRequestExit = false
 const main = async () => {
   const me = (await web3.eth.getAccounts())[0]
   const pow = new web3.eth.Contract(
@@ -62,8 +61,6 @@ const main = async () => {
 
   let maxTries = 0
   while (true) {
-    if (didRequestExit) { break }
-
     const difficulty = await pow.methods.difficulty().call()
     const challengeNumber = await pow.methods.challengeNumber().call()
     let validNonce
@@ -122,10 +119,7 @@ const main = async () => {
 }
 
 const gracefulExit = async () => {
-  if (didRequestExit) {
-    process.exit(1)
-  }
-  didRequestExit = true
+  process.exit(1)
 }
 
 process.on('SIGINT', gracefulExit)
