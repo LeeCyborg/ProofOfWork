@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "deploy": "truffle migrate --network geth",
+    "deploy": "truffle migrate --network miniEth",
+    "mine": "node mine.js"
   },
   "dependencies": {
     "babel-eslint": "^8.2.3",
