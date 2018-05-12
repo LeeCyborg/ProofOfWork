@@ -30,6 +30,10 @@ module.exports = {
       provider: provider('http://127.0.0.1:8545'),
       ...defaultConfig,
     },
+    miniEth: {
+      provider: provider(`http://${MINI_ETH_HOST}:8545`),
+      ...defaultConfig,
+    },
     development: {
       host: '127.0.0.1',
       port: 8545,

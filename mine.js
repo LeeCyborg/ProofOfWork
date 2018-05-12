@@ -4,7 +4,7 @@ const Web3 = require('web3')
 const HDWalletProvider = require('truffle-hdwallet-provider')
 const web3 = new Web3(new HDWalletProvider(
   process.env.MNEMONIC,
-  'http://127.0.0.1:8545'
+  `http://${process.env.MINI_ETH_HOST || '127.0.0.1'}:8545`
 ))
 const PoWArtifact = require('./build/contracts/ProofOfWork.json')
 // eslint-disable-next-line promise/avoid-new
