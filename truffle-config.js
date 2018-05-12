@@ -31,7 +31,7 @@ module.exports = {
       ...defaultConfig,
     },
     miniEth: {
-      provider: provider(`http://${MINI_ETH_HOST}:8545`),
+      provider: provider(`http://${process.env.MINI_ETH_HOST}:8545`),
       ...defaultConfig,
     },
     development: {
